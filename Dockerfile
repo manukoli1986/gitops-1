@@ -14,7 +14,7 @@ RUN pip install flask
 RUN echo 'from flask import Flask, jsonify\nimport socket\nimport datetime\n\napp = Flask(__name__)\n\n@app.route("/")\ndef hello():\n    return jsonify({\n        "message": "Hello, World!",\n        "current_time": str(datetime.datetime.now()),\n        "hostname": socket.gethostname()\n    })\n\nif __name__ == "__main__":\n    app.run(debug=True, host="0.0.0.0")' > app.py
 
 # Make port 80 available to the world outside this container
-EXPOSE 80
+EXPOSE 5000
 
 # Run app.py when the container launches
 CMD ["python", "app.py"]
